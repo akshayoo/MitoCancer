@@ -19,3 +19,33 @@ ensemblgeneId VARCHAR(50) PRIMARY KEY,
 geneId INT REFERENCES mitoCartaMaster(geneId),
 idRank INT NOT NULL DEFAULT 1
 );
+
+CREATE TABLE uniprotMitoData (
+uniprotId VARCHAR(20) PRIMARY KEY,
+geneId INT REFERENCES mitocartamaster(geneId),
+proteinEntry VARCHAR(25),
+proteinName TEXT,
+proteinExistence VARCHAR(50),
+proteinFunction TEXT,
+subunitInfo TEXT,
+subcellularLocation TEXT,
+goMolecularFunction TEXT,
+goBiologicalProcess TEXT,
+goCellularComponent TEXT,
+ptmAnnotation TEXT,
+sequenceLength INT,
+molWeight INT,
+isCanonical BOOLEAN DEFAULT TRUE,
+dateRetrieved TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE uniprotMitoDiseaseData (
+id SERIAL PRIMARY KEY,
+uniprotId VARCHAR(20) REFERENCES uniprotmitodata(uniprotid),
+diseaseId VARCHAR(100),
+diseaseAcronym VARCHAR(20), 
+mimId VARCHAR(10), 
+diseaseDescription TEXT, 
+inheritance VARCHAR(20),   
+isCancer BOOLEAN       
+);
