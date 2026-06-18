@@ -212,6 +212,9 @@ def main():
                 gene_id= gene_id
             )
             print(disease_db_feed)
+            print("___________________________________")
+            print(f"_______Fetched: {uniprot_id}______")
+            print("___________________________________")
 
 
         else:
