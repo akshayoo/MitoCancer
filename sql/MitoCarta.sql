@@ -6,12 +6,13 @@ entrezId INT UNIQUE,
 geneSymbol VARCHAR(50) NOT NULL,
 mouseOrtholog VARCHAR(50),
 geneDescription TEXT,
+submitoLocalization VARCHAR(25),
 uniprotId VARCHAR(25),
 mitoPathway TEXT,
-mitocartaScore FLOAT NOT NULL,
+mitocartaScore FLOAT,
 targetpScore FLOAT,
-hg19chr VARCHAR(10)
-inMitocarta BOOLEAN DEFAULT TRUE,
+hg19chr VARCHAR(10),
+inMitocarta BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE ensemblIdMapping(
@@ -26,13 +27,7 @@ geneId INT REFERENCES mitocartamaster(geneId),
 proteinEntry VARCHAR(25),
 proteinName TEXT,
 proteinExistence VARCHAR(50),
-proteinFunction TEXT,
-subunitInfo TEXT,
 subcellularLocation TEXT,
-goMolecularFunction TEXT,
-goBiologicalProcess TEXT,
-goCellularComponent TEXT,
-ptmAnnotation TEXT,
 sequenceLength INT,
 molWeight INT,
 isCanonical BOOLEAN DEFAULT TRUE,
@@ -42,10 +37,10 @@ dateRetrieved TIMESTAMP DEFAULT NOW()
 CREATE TABLE uniprotMitoDiseaseData (
 id SERIAL PRIMARY KEY,
 uniprotId VARCHAR(20) REFERENCES uniprotmitodata(uniprotid),
+geneId INT REFERENCES mitocartamaster(geneId),
 diseaseId VARCHAR(100),
 diseaseAcronym VARCHAR(20), 
 mimId VARCHAR(10), 
-diseaseDescription TEXT, 
-inheritance VARCHAR(20),   
+diseaseDescription TEXT,    
 isCancer BOOLEAN       
 );

@@ -15,6 +15,7 @@ data = data[[
     "Symbol",
     "MouseOrthologGeneID",
     "Description",
+    "MitoCarta3.0_SubMitoLocalization",
     "UniProt",
     "MitoCarta3.0_MitoPathways",
     "MitoCarta2.0_Score",
@@ -39,6 +40,7 @@ gene_query = text("""
         genesymbol,
         mouseortholog,
         genedescription,
+        submitolocalization,
         uniprotid,
         mitopathway,
         mitocartascore,
@@ -50,6 +52,7 @@ gene_query = text("""
         :genesymbol,
         :mouseortholog,
         :description,
+        :localization,
         :uniprotid,
         :mitopathway,
         :mitocartascore,
@@ -80,6 +83,7 @@ with engine.connect() as conn:
                 "genesymbol" : clean(elem.get("Symbol")),
                 "mouseortholog" : clean(elem.get("MouseOrthologGeneID")),
                 "description" : clean(elem.get("Description")),
+                "localization" : clean(elem.get("MitoCarta3.0_SubMitoLocalization")),
                 "uniprotid" : clean(elem.get("UniProt")),
                 "mitopathway" : clean(elem.get("MitoCarta3.0_MitoPathways")),
                 "mitocartascore" : clean(elem.get("MitoCarta2.0_Score")),
@@ -111,10 +115,9 @@ with engine.connect() as conn:
                             })
 
         conn.commit()
-        print(f"Done — {len(data_dict)} genes loaded")
         print(f"{len(conflicts)} Ensembl ID conflicts skipped: {conflicts}")
 
     except Exception as e:
         conn.rollback()
-        print(f"Failed — rolled back. Error: {e}")
+        print(f"Failed: rolled back. Error: {e}")
 
