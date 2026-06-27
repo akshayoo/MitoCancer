@@ -219,8 +219,18 @@ def main():
 
         else:
             print(f"Failed for {uniprot_id}: "f"{response.status_code}")
-            location_info = None
-            protein_info = None
+            with engine.begin() as conn:
+                conn.execute(text(insert_query), {
+                    "uniprotid" : uniprot_id,
+                    "geneid" : gene_id,
+                    "proteinentry" : None,
+                    "proteinname": None,
+                    "proteinexistence" : None,
+                    "subcellularlocation" : None,
+                    "sequencelength" : None,
+                    "molweight" : None,
+                    "iscanonical" : None
+                })
 
 
 if __name__ == "__main__":
