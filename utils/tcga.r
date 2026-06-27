@@ -1,4 +1,4 @@
-options(timeout = 1800) 
+options(timeout = 1800)
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
