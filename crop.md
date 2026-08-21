@@ -1,4 +1,4 @@
----
+
 
 ### **I. Core Definition & Characteristics**
 - **Formation**: Stalks are bent (not broken) at the base, often in swirling patterns, creating flattened areas that contrast with standing crops. The plants usually continue growing horizontally.
@@ -6,7 +6,6 @@
 - **Timing**: Almost exclusively appear overnight (between dusk and dawn) in growing seasons (spring/summer in temperate zones), primarily in the UK (especially Wiltshire/Hampshire near ancient sites like Stonehenge and Avebury), but now reported globally (USA, Canada, Australia, Germany, Netherlands, etc.).
 - **Key Feature**: Genuine formations show **elastic deformation** of stalks—stems are bent but not kinked or broken, indicating mechanical force applied *while the plant was pliable* (not via heat, radiation, or explosive energy).
 
----
 
 ### **II. Historical Timeline**
 - **Pre-1970s: Isolated Reports & Folklore**
